@@ -10,8 +10,14 @@ RUN apt-get update && \
     -subj "/C=FR/ST=Paris/L=Paris/O=42/OU=aquincho/CN=aquincho.42.fr" && \
     mkdir -p /run/mginx
 
+#copy config file
 COPY    ./conf/nginx.conf /etc/nginx/conf.d
 
+#RUN chmod 775 /var/www/html && \
+#    chown -R www-data:www-data /var/www/html
+
+#open port 443
 EXPOSE  443
 
+#start nginx
 CMD ["nginx", "-g", "daemon off;"]

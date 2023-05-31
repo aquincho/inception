@@ -3,15 +3,21 @@ services:
   nginx:
     container_name: nginx
     build: ./requirements/nginx
+    depends_on:
+      - wordpress
     ports:
       - 443:443
-    restart: always
+    volumes:
+      - wordpress:/var/www/html
     networks:
       - network
+    restart: always
 
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
+    ports:
+      - 3306:3306
     volumes:
       - db_data:/var/lib/mysql
     networks:
@@ -20,12 +26,30 @@ services:
     env_file:
       - .env
 
+  wordpress:
+    container_name: worpress
+    build: ./requirements/wordpress
+    depends_on:
+      - mariadb
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - network
+    env_file:
+      - .env
+
 volumes:
-  db_data:
-    driver:local
+  wordpress:
+    driver: local
     driver_opts:
       type: none
-      device: /home/aquincho/data/mysql
+      device: ${VOLUME_WORDPRESS}
+      o: bind
+  db_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${VOLUME_DB}
       o: bind
 
 
