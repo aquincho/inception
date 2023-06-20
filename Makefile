@@ -13,6 +13,12 @@ build:
 down:
 	docker compose -f $(COMPOSE_FILE) -p $(NAME) down
 
+stop:
+	docker compose -f $(COMPOSE_FILE) -p $(NAME) down
+
+status:
+	docker compose -f $(COMPOSE_FILE) -p $(NAME) ps
+
 clean:
 	docker stop $$(docker ps -qa);\
 	docker rm $$(docker ps -qa);\
