@@ -8,6 +8,8 @@ ENV_FILE = $(SRC_DIR)/.env
 all: build
 
 build:
+	mkdir -p /home/aquincho/data/db
+	mkdir -p /home/aquincho/data/wordpress
 	docker compose -f $(COMPOSE_FILE) -p $(NAME) up -d --build
 
 down:
@@ -23,7 +25,8 @@ clean:
 	docker stop $$(docker ps -qa);\
 	docker rm $$(docker ps -qa);\
 	docker rmi -f $$(docker images -qa);\
-	docker volume rm $$(docker volume ls -q);
-	docker network rm $$(docker network ls -q);
+	docker volume rm $$(docker volume ls -q) > /dev/null;
+	docker network rm network > /dev/null;
+#	docker network rm $$(docker network ls -q);
 
 PHONY: all build down
