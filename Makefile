@@ -26,7 +26,7 @@ clean:
 	docker rm $$(docker ps -qa);\
 	docker rmi -f $$(docker images -qa);\
 	docker volume rm $$(docker volume ls -q) > /dev/null;
-	docker network rm network > /dev/null;
+	docker network rm inception_inception_network > /dev/null;
 #	docker network rm $$(docker network ls -q);
 
 PHONY: all build down
