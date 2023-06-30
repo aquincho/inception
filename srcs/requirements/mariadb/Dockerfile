@@ -5,10 +5,10 @@ RUN apt-get update && apt-get upgrade &&\
 
 #RUN service mysql start
 
-COPY ./conf/mariadb.conf /etc/mysql/mariadb.conf.d/50-server.cnf
-COPY ./conf/mariadb.conf /etc/mysql/my.
-COPY ./conf/mariadb.conf /etc/my.cnf
-COPY ./conf/mariadb.conf ~/my.cnf
+#COPY ./conf/mariadb.conf /etc/mysql/mariadb.conf.d/50-server.cnf
+#COPY ./conf/mariadb.conf /etc/mysql/my.
+#COPY ./conf/mariadb.conf /etc/my.cnf
+#COPY ./conf/mariadb.conf ~/my.cnf
 COPY ./tools/mariadb.sh /tmp/mariadb.sh
 
 #RUN mkdir -p /var/run/mysqld 
@@ -43,4 +43,4 @@ RUN mkdir -pv /home/aquincho/data/wordpress
 
 ENTRYPOINT ["sh", "/tmp/mariadb.sh"]
 
-EXPOSE 3306
+#EXPOSE 3306

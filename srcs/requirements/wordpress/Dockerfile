@@ -14,11 +14,11 @@ RUN chmod -R 755 /var/www/html/wordpress
 
 
 
-COPY    ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
+#COPY    ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 COPY    ./tools/wordpress.sh /tmp/wordpress.sh
 
 RUN mkdir -p /run/php
 
-EXPOSE  9000
+#EXPOSE  9000
 
 ENTRYPOINT ["sh", "/tmp/wordpress.sh"]
