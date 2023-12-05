@@ -9,7 +9,7 @@ RUN wget -O /tmp/wordpress.tar.gz https://fr.wordpress.org/wordpress-6.0-fr_FR.t
 RUN mkdir -p /var/www/html
 RUN tar -xvf /tmp/wordpress.tar.gz -C /var/www/html
 RUN rm /tmp/wordpress.tar.gz
-RUN chown -R www-data:www-data /var/www/html/wordpress
+#RUN chown -R www-data:www-data /var/www/html/wordpress
 RUN chmod -R 755 /var/www/html/wordpress
 
 

@@ -13,8 +13,9 @@ RUN apt-get update && \
 #copy config file
 COPY    ./conf/nginx.conf /etc/nginx/conf.d
 
-RUN chmod 775 /var/www/html && \
-    chown -R www-data:www-data /var/www/html
+RUN chmod 777 /var/www/html 
+	#&& \
+    #chown -R www-data:www-data /var/www/html
 
 #open port 443
 EXPOSE  443

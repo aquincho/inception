@@ -1,7 +1,7 @@
 #!/bin/sh
 
-mkdir -p /home/aquincho/data/wordpress
-mkdir -p /home/aquincho/data/db
+#mkdir -p /homes/aquincho/data/wordpress
+#mkdir -p /homes/aquincho/data/db
 
 service mysql start;
 

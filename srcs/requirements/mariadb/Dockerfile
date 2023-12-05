@@ -26,8 +26,8 @@ COPY ./tools/mariadb.sh /tmp/mariadb.sh
 
 RUN chmod +x /tmp/mariadb.sh
 
-RUN mkdir -pv /home/aquincho/data/db
-RUN mkdir -pv /home/aquincho/data/wordpress
+#RUN mkdir -pv /homes/aquincho/data/db
+#RUN mkdir -pv /homes/aquincho/data/wordpress
 
 #RUN service mysql restart
 
