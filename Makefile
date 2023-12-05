@@ -8,8 +8,8 @@ ENV_FILE = $(SRC_DIR)/.env
 all: build
 
 build:
-	mkdir -p /home/aquincho/data/db
-	mkdir -p /home/aquincho/data/wordpress
+#	mkdir -p /home/aquincho/data/db
+#	mkdir -p /home/aquincho/data/wordpress
 	docker compose -f $(COMPOSE_FILE) -p $(NAME) up -d --build
 
 down:

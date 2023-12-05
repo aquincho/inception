@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 #install nginc openssl
 RUN apt-get update && \
